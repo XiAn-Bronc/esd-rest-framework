@@ -16,3 +16,12 @@ serializer = SnippetSerializer(snippet)
 content = JSONRenderer().render(serializer.data)
 
 # 反序列化
+stream = io.BytesIO(content)
+data = JSONParser().parse(stream)
+serializer = SnippetSerializer(data=data)
+serializer.is_valid()
+serializer.validated_data
+serializer.save()
+
+# 获取对象集合，添加标记many=True
+serializer = SnippetSerializer(Snippet.objects.all(), many=True)
