@@ -10,6 +10,8 @@
   ```python
   python -m venv env
   .\env\Scripts\activate
+  # As an Administrator , you can set the execution policy by typing this into your PowerShell window
+  Set-ExecutionPolicy RemoteSigned
   
   pip install django
   pip install djangorestframework
